@@ -50,7 +50,34 @@
         <v-col cols="12" md="6" class="my-n2">
           <v-card>
             <!-- nomination list -->
-            <v-card-title class="justify-center">Nomiation list:</v-card-title>
+            <v-card-title class="justify-center">Nomiations:</v-card-title>
+            <v-list>
+              <template v-for="(item, index) in nominatedList">
+                <v-divider class="my-2" :key="index"></v-divider>
+                <v-list-item :key="item.Title">
+                  <v-img
+                    max-width="70"
+                    class="mr-3"
+                    contain
+                    :src="item.Poster"
+                  ></v-img>
+                  <v-list-item-content>
+                    <v-list-item-title v-html="`${item.Title} (${item.Year})`">
+                    </v-list-item-title>
+                  </v-list-item-content>
+                  <v-list-item-action>
+                    <v-btn
+                      icon
+                      dark
+                      right
+                      class="d-inline-block indigo darken-4"
+                    >
+                      <v-icon>delete</v-icon></v-btn
+                    >
+                  </v-list-item-action>
+                </v-list-item>
+              </template>
+            </v-list>
           </v-card>
         </v-col>
       </v-row>
@@ -151,6 +178,24 @@ export default {
           Type: "series",
           Poster:
             "https://m.media-amazon.com/images/M/MV5BZjIzNTkyNjktNDdmMy00MmI4LWFlN2MtNDllYTVhZjljNWFiXkEyXkFqcGdeQXVyMTAwMzM3NDI3._V1_SX300.jpg"
+        }
+      ],
+      nominatedList: [
+        {
+          Title: "Fast & Furious Presents: Hobbs & Shaw",
+          Year: "2019",
+          imdbID: "tt6806448",
+          Type: "movie",
+          Poster:
+            "https://m.media-amazon.com/images/M/MV5BOTIzYmUyMmEtMWQzNC00YzExLTk3MzYtZTUzYjMyMmRiYzIwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg"
+        },
+        {
+          Title: "Fast & Furious 6",
+          Year: "2013",
+          imdbID: "tt1905041",
+          Type: "movie",
+          Poster:
+            "https://m.media-amazon.com/images/M/MV5BMTM3NTg2NDQzOF5BMl5BanBnXkFtZTcwNjc2NzQzOQ@@._V1_SX300.jpg"
         }
       ]
     };
