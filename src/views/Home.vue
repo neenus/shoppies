@@ -22,8 +22,26 @@
                   <v-list-item-content>
                     <v-list-item-title
                       v-html="`${result.Title} (${result.Year})`"
-                    ></v-list-item-title>
+                    >
+                    </v-list-item-title>
+                    <v-btn
+                      v-if="mobile"
+                      rounded
+                      dark
+                      right
+                      class="d-inline-block indigo darken-4 mt-5"
+                      >Nominate</v-btn
+                    >
                   </v-list-item-content>
+                  <v-list-item-action v-if="!mobile">
+                    <v-btn
+                      rounded
+                      dark
+                      right
+                      class="d-inline-block indigo darken-4 mt-5"
+                      >Nominate</v-btn
+                    >
+                  </v-list-item-action>
                 </v-list-item>
               </template>
             </v-list>
@@ -31,7 +49,7 @@
         </v-col>
         <v-col cols="12" md="6" class="my-n2">
           <v-card>
-            <!-- search results -->
+            <!-- nomination list -->
             <v-card-title class="justify-center">Nomiation list:</v-card-title>
           </v-card>
         </v-col>
@@ -52,6 +70,7 @@ export default {
   data() {
     return {
       searchInput: "fast",
+      mobile: false,
       results: [
         {
           Title: "Fast & Furious 6",
@@ -135,6 +154,20 @@ export default {
         }
       ]
     };
+  },
+  mounted() {
+    this.onResize();
+    window.addEventListener("resize", this.onResize, { passive: true });
+  },
+  methods: {
+    onResize() {
+      this.mobile = window.innerWidth < 600;
+    }
+  },
+  beforeDestroy() {
+    if (typeof window !== undefined) {
+      window.removeEventListener("resize", this.onResize, { passive: true });
+    }
   }
 };
 </script>
