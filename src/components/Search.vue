@@ -1,16 +1,17 @@
 <template>
   <div id="search">
     <v-row>
-      <v-col cols="12" md="8" offset-md="2">
+      <v-col cols="12" md="10" offset-md="1">
         <v-card flat prominent class="mt-5">
           <v-text-field
+            outlined
+            shaped=""
+            clearable=""
             height="50px"
             class="mx-4"
-            flat
             hide-details
             label="Search"
-            prepend-inner-icon="search"
-            solo-inverted
+            append-icon="search"
           ></v-text-field>
         </v-card>
       </v-col>
