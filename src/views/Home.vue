@@ -35,6 +35,7 @@
                       dark
                       right
                       class="d-inline-block indigo darken-4 mt-5"
+                      @click="nominate(result)"
                       >Nominate</v-btn
                     >
                   </v-list-item-content>
@@ -44,6 +45,7 @@
                       dark
                       right
                       class="d-inline-block indigo darken-4 mt-5"
+                      @click="nominate(result)"
                       >Nominate</v-btn
                     >
                   </v-list-item-action>
@@ -76,6 +78,7 @@
                       dark
                       right
                       class="d-inline-block indigo darken-4"
+                      @click="removeNominee(item)"
                     >
                       <v-icon>delete</v-icon></v-btn
                     >
@@ -111,6 +114,12 @@ export default {
     window.addEventListener("resize", this.onResize, { passive: true });
   },
   methods: {
+    nominate(movie) {
+      this.$store.dispatch("add_nominee", movie);
+    },
+    removeNominee(movie) {
+      this.$store.dispatch("remove_nominee", movie);
+    },
     onResize() {
       this.mobile = window.innerWidth < 600;
     }
