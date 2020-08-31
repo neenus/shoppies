@@ -17,7 +17,7 @@
             <v-list>
               <template v-for="(result, index) in searchResults">
                 <v-divider class="my-2" :key="index"></v-divider>
-                <v-list-item :key="result.Title">
+                <v-list-item :key="result.imdbID">
                   <v-img
                     max-width="70"
                     class="mr-3"
@@ -61,7 +61,7 @@
             <v-list>
               <template v-for="(item, index) in nominationsList">
                 <v-divider class="my-2" :key="index"></v-divider>
-                <v-list-item :key="item.Title">
+                <v-list-item :key="item.imdbID">
                   <v-img
                     max-width="70"
                     class="mr-3"
