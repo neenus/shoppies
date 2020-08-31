@@ -6,9 +6,14 @@
         <v-col cols="12" md="6" class="my-n2">
           <v-card>
             <!-- search results -->
-            <v-card-title class="justify-center"
-              >Results for "{{ searchInput }}":</v-card-title
-            >
+            <v-card-title
+              class="justify-center"
+              v-html="
+                searchTerm !== null && searchTerm.length > 0
+                  ? `Results for '${searchTerm}':`
+                  : 'Start by typing in the search box above'
+              "
+            ></v-card-title>
             <v-list>
               <template v-for="(result, index) in results">
                 <v-divider class="my-2" :key="index"></v-divider>
@@ -88,15 +93,16 @@
 <script>
 // @ is an alias to /src
 import Search from "@/components/Search";
+import { mapState } from "vuex";
 
 export default {
   name: "Home",
   components: {
     Search
   },
+  computed: mapState(["searchTerm"]),
   data() {
     return {
-      searchInput: "fast",
       mobile: false,
       results: [
         {

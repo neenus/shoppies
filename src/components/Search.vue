@@ -12,9 +12,22 @@
             hide-details
             label="Search"
             append-icon="search"
+            @input="search"
           ></v-text-field>
         </v-card>
       </v-col>
     </v-row>
   </div>
 </template>
+
+<script>
+import { mapState } from "vuex";
+export default {
+  computed: mapState(["searchResults", "nominationsList", "searchTerm"]),
+  methods: {
+    search(payload) {
+      this.$store.dispatch("search", payload);
+    }
+  }
+};
+</script>
