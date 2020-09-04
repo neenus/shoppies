@@ -1,9 +1,9 @@
 <template>
   <div id="navbar">
-    <v-app-bar app>
+    <v-app-bar app height="95px">
       <v-spacer></v-spacer>
-      <div class="text-h4 font-weight-black indigo--text text--darken-4">
-        The Shoppies
+      <div class="text-h4 font-weight-black ">
+        Shoppies
       </div>
       <v-spacer></v-spacer>
     </v-app-bar>
