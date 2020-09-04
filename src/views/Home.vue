@@ -32,20 +32,28 @@
                     <v-btn
                       v-if="mobile"
                       rounded
-                      dark
                       right
-                      class="d-inline-block indigo darken-4 mt-5"
+                      class="d-inline-block indigo darken-4 mt-5 white--text"
                       @click="nominate(result)"
+                      :disabled="
+                        nominationsList.some(
+                          item => item.imdbID === result.imdbID
+                        )
+                      "
                       >Nominate</v-btn
                     >
                   </v-list-item-content>
                   <v-list-item-action v-if="!mobile">
                     <v-btn
                       rounded
-                      dark
                       right
-                      class="d-inline-block indigo darken-4 mt-5"
+                      class="d-inline-block indigo darken-4 mt-5 white--text"
                       @click="nominate(result)"
+                      :disabled="
+                        nominationsList.some(
+                          item => item.imdbID === result.imdbID
+                        )
+                      "
                       >Nominate</v-btn
                     >
                   </v-list-item-action>
