@@ -48,7 +48,10 @@ export default {
           this.$store.dispatch("set_search_results", results.Search);
           this.loading = false;
         }
-      } else this.loading = false;
+      } else {
+        this.$store.dispatch("set_search_results", null);
+        this.loading = false;
+      }
     }
   }
 };
