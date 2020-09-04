@@ -1,5 +1,13 @@
 <template>
   <div class="home">
+    <v-banner
+      v-if="nominationsList.length === 5"
+      app
+      color="black"
+      class="text-center white--text"
+    >
+      Thank you for participating! you have nominated five movies.
+    </v-banner>
     <Search />
     <v-container>
       <v-row>
@@ -11,7 +19,7 @@
               v-html="
                 searchTerm !== null && searchTerm.length > 0
                   ? `Results for '${searchTerm}':`
-                  : 'Start by typing in the search box above'
+                  : 'Start by typing a movie title'
               "
             ></v-card-title>
             <v-list>
@@ -36,9 +44,11 @@
                       class="d-inline-block indigo darken-4 mt-5 white--text"
                       @click="nominate(result)"
                       :disabled="
-                        nominationsList.some(
-                          item => item.imdbID === result.imdbID
-                        )
+                        nominationsList.length < 5
+                          ? nominationsList.some(
+                              item => item.imdbID === result.imdbID
+                            )
+                          : true
                       "
                       >Nominate</v-btn
                     >
@@ -50,9 +60,11 @@
                       class="d-inline-block indigo darken-4 mt-5 white--text"
                       @click="nominate(result)"
                       :disabled="
-                        nominationsList.some(
-                          item => item.imdbID === result.imdbID
-                        )
+                        nominationsList.length < 5
+                          ? nominationsList.some(
+                              item => item.imdbID === result.imdbID
+                            )
+                          : true
                       "
                       >Nominate</v-btn
                     >
@@ -65,7 +77,11 @@
         <v-col cols="12" md="6" class="my-n2">
           <v-card>
             <!-- nomination list -->
-            <v-card-title class="justify-center">Nomiations:</v-card-title>
+            <v-card-title class="justify-center">{{
+              nominationsList.length > 0
+                ? "Your nomiations list:"
+                : "Your nomiations list is empty"
+            }}</v-card-title>
             <v-list>
               <template v-for="(item, index) in nominationsList">
                 <v-divider class="my-2" :key="index"></v-divider>
