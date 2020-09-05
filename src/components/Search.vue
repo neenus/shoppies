@@ -36,7 +36,7 @@ export default {
       this.$store.dispatch("search", input);
       if (input != null && input.length > 0) {
         this.loading = true;
-        const url = `${process.env.VUE_APP_OMDB_API_URL}?apikey=${process.env.VUE_APP_OMDB_API_KEY}&s=${input}`;
+        const url = `${process.env.VUE_APP_OMDB_API_URL}?apikey=${process.env.VUE_APP_OMDB_API_KEY}&s=${input}&type=movie`;
         const results = await axios
           .get(url)
           .then(res => {
