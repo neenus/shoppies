@@ -1,7 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import VuexPersistence from "vuex-persist";
 
 Vue.use(Vuex);
+
+const vuexPersist = new VuexPersistence({
+  strictMode: true,
+  storage: localStorage,
+  reducer: state => ({ nominationsList: state.nominationsList }),
+  filter: mutation => mutation.type === "ADD_NOMINEE" || "REMOVE_NOMINESS"
+});
 
 export default new Vuex.Store({
   state: {
@@ -10,6 +18,7 @@ export default new Vuex.Store({
     nominationsList: []
   },
   mutations: {
+    RESTORE_MUTATION: vuexPersist.RESTORE_MUTATION, // this mutation **MUST** be named "RESTORE_MUTATION"
     SEARCH(state, payload) {
       state.searchTerm = payload;
     },
@@ -52,5 +61,6 @@ export default new Vuex.Store({
       }
     }
   },
-  modules: {}
+  modules: {},
+  plugins: [vuexPersist.plugin]
 });
