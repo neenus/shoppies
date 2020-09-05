@@ -4,10 +4,11 @@ import VuexPersistence from "vuex-persist";
 
 Vue.use(Vuex);
 
+// vuex-persist setup to store and remove nomination list in localStorage
 const vuexPersist = new VuexPersistence({
   strictMode: true,
   storage: localStorage,
-  reducer: state => ({ nominationsList: state.nominationsList }),
+  reducer: state => ({ nominationsList: state.nominationsList }), // reduce saved values to only nomination list from Vuex Store
   filter: mutation => mutation.type === "ADD_NOMINEE" || "REMOVE_NOMINESS"
 });
 
