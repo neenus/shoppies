@@ -1,6 +1,6 @@
 # Shoppies
 
-The shopies is a movie search and nomination single page application built with Vue CLI, Vuex and Vueitfy using the OMDb API (The Open Movie Database)
+The shoppies is a movie search and nomination single page application built with Vue CLI, Vuex and Vueitfy using the OMDb API (The Open Movie Database)
 
 ## Prerequisites
 
