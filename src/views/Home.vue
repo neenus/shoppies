@@ -32,6 +32,9 @@ import { mapState } from "vuex";
 
 export default {
   name: "Home",
+  metaInfo: {
+    title: "Shoppies | Home"
+  },
   components: {
     Search,
     Results,
