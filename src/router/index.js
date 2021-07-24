@@ -27,4 +27,11 @@ const router = new VueRouter({
   routes
 });
 
+// eslint-disable-next-line no-unused-vars
+router.beforeEach((to, from, next) => {
+  let documentTitle = process.env.VUE_APP_TITLE;
+  document.title = `${documentTitle} | ${to.name}`;
+  next();
+});
+
 export default router;
