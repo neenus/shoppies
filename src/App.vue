@@ -46,6 +46,7 @@ export default {
       { property: "og:site_name", content: "Shoppies" },
       { property: "og:type", content: "website" },
       {
+        vmid: "ogImage",
         property: "og:image",
         content: "https://cdn.shopify.com/assets/images/logos/shopify-bag.png"
       },
