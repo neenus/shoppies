@@ -17,7 +17,6 @@ export default {
   }),
   metaInfo: {
     meta: [
-      { name: "title", content: "Shoppies" },
       {
         name: "description",
         content:
@@ -33,6 +32,7 @@ export default {
           "The shoppies is a movie search and nomination single page application built with Vue CLI, Vuex and Vueitfy using the OMDb API (The Open Movie Database)."
       },
       {
+        vmid: "twitterCardImage",
         name: "twitter:image",
         content: "https://cdn.shopify.com/assets/images/logos/shopify-bag.png"
       },
