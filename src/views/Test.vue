@@ -1,12 +1,12 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="test">
+    <h1>This is a test page</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "About",
+  name: "Test",
   metaInfo: {
     meta: [
       // Twitter Card
@@ -14,15 +14,14 @@ export default {
         vmid: "twitterCardImage",
         name: "twitter:image",
         content:
-          "https://careers.pjili.com/wp-content/uploads/2020/03/pjili_careers_v1.png"
+          "https://pjili-public.s3.ca-central-1.amazonaws.com/auctions/assets/img/welcome_poster.png"
       },
-
       // Facebook OpenGraph
       {
         vmid: "ogImage",
         property: "og:image",
         content:
-          "https://careers.pjili.com/wp-content/uploads/2020/03/pjili_careers_v1.png"
+          "https://pjili-public.s3.ca-central-1.amazonaws.com/auctions/assets/img/welcome_poster.png"
       }
     ]
   }
